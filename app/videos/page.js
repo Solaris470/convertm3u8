@@ -54,7 +54,7 @@ export default function Videos() {
           <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg text-center">
             <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">No videos found</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6">
-              You haven't converted any videos yet. Convert your first video to get started.
+              You haven&apos;t converted any videos yet. Convert your first video to get started.
             </p>
             <Link 
               href="/"

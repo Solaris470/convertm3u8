@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
-export default function Player() {
+function PlayerContent() {
   const videoRef = useRef(null);
   const searchParams = useSearchParams();
   const [videoSrc, setVideoSrc] = useState("");
@@ -335,12 +336,12 @@ export default function Player() {
                   Try Direct MP4
                 </button>
                 
-                <a 
+                <Link 
                   href="/"
                   className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors text-center"
                 >
                   Convert a New Video
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -381,5 +382,21 @@ export default function Player() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Wrap the component with Suspense
+export default function Player() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="flex flex-col items-center">
+          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <p className="mt-4 text-white">Loading player...</p>
+        </div>
+      </div>
+    }>
+      <PlayerContent />
+    </Suspense>
   );
 } 

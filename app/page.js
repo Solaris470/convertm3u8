@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const [file, setFile] = useState(null);
@@ -153,7 +154,7 @@ export default function Home() {
               ) : (
                 <div>
                   <p className="text-gray-600 dark:text-gray-300 mb-2">
-                    Drag & drop a video file here, or <span className="text-blue-500">browse</span>
+                    Drag &amp; drop a video file here, or <span className="text-blue-500">browse</span>
                   </p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Supports MP4, MOV, AVI, MKV
@@ -272,12 +273,12 @@ export default function Home() {
               >
                 Open as MP4 (Faster)
               </a>
-              <a 
+              <Link 
                 href="/videos"
                 className="flex-1 py-2 px-4 bg-gray-600 hover:bg-gray-700 text-white text-center rounded-lg transition-colors text-sm"
               >
                 View All Videos
-              </a>
+              </Link>
             </div>
             
             {mp4Url && (
